@@ -47,35 +47,34 @@ enum custom_keycodes {
 #define BRC      MO(_BRC)
 #define NAV      MO(_NAV)
 #define NUM      MO(_NUM)
-#define GUI_SPC  LGUI(KC_SPC)
 
 // home row mods
 #define SFT_A     MT( MOD_LSFT, KC_A    )
 #define ALT_S     MT( MOD_LALT, KC_S    )
 #define CTL_D     MT( MOD_LCTL, KC_D    )
-#define GUI_F     MT( MOD_LGUI, KC_F    )
-
-
-#define GUI_J     MT( MOD_LGUI, KC_J    )
+#define NUM_F     LT( _NUM, KC_F )
+/* #define GUI_J     MT( MOD_LGUI, KC_J    ) */
+#define BRC_J     LT( _BRC, KC_J    )
 #define CTL_K     MT( MOD_LCTL, KC_K    )
 #define ALT_L     MT( MOD_LALT, KC_L    )
 #define SFT_SCLN MT( MOD_LSFT, KC_SCLN )
 
 #define WIN_W     LT( _WIN, KC_W )
 #define TMUX_T    LT( _TMUX, KC_T )
-#define NUM_BSPC  LT( _NUM, KC_BSPC )
+#define NAV_BSPC  LT( _NAV, KC_BSPC )
 #define BRC_SPC   LT( _BRC, KC_SPC )
-#define NAV_TAB   LT( _NAV, KC_TAB )
+#define GUI_TAB   MT( MOD_LGUI, KC_TAB )
 #define SYM_ENT   LT( _SYM, KC_ENT )
 #define SYM_ESC   LT( _SYM, KC_ESC )
-#define EUR       LSA(KC_2)
+#define EUR       LSA( KC_2 )
+#define TEAM_MUTE LSG( KC_M )
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
      _______, KC_Q  ,  WIN_W  ,  KC_E   , KC_R   ,  TMUX_T ,                                         KC_Y   , KC_U      , KC_I  , KC_O   , KC_P    , _______ ,
-     _______, SFT_A ,  ALT_S  ,  CTL_D  , GUI_F  ,  KC_G   ,                                         KC_H   , GUI_J     , CTL_K , ALT_L  , SFT_SCLN, _______,
+     _______, SFT_A ,  ALT_S  ,  CTL_D  , NUM_F  ,  KC_G   ,                                         KC_H   , BRC_J     , CTL_K , ALT_L  , SFT_SCLN, _______,
      _______, KC_Z  ,  KC_X   ,  KC_C   , KC_V   ,  KC_B   , _______ , _______,    _______, _______, KC_N   , KC_M      ,KC_COMM, KC_DOT , KC_SLSH , _______,
-                                 KC_MUTE, _______,  SYM_ESC, NUM_BSPC, NAV_TAB,    EUR    , BRC_SPC, SYM_ENT, TG(_MOUSE),KC__MUTE
+                                 KC_MUTE, _______,  SYM_ESC, NAV_BSPC, GUI_TAB,    EUR    , BRC_SPC, SYM_ENT, TT(_MOUSE),TEAM_MUTE
     ),
 
     [_NUM] = LAYOUT(
@@ -140,37 +139,37 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   if (record->event.pressed) {
     switch (keycode) {
       case T_1:
-        SEND_STRING( SS_LCTL("t") "1" );
+        SEND_STRING( SS_LCTL("y") "1" );
         break;
       case T_2:
-        SEND_STRING( SS_LCTL("t") "2" );
+        SEND_STRING( SS_LCTL("y") "2" );
         break;
       case T_3:
-        SEND_STRING( SS_LCTL("t") "3" );
+        SEND_STRING( SS_LCTL("y") "3" );
         break;
       case T_4:
-        SEND_STRING( SS_LCTL("t") "4" );
+        SEND_STRING( SS_LCTL("y") "4" );
         break;
       case T_5:
-        SEND_STRING( SS_LCTL("t") "5" );
+        SEND_STRING( SS_LCTL("y") "5" );
         break;
       case T_6:
-        SEND_STRING( SS_LCTL("t") "6" );
+        SEND_STRING( SS_LCTL("y") "6" );
         break;
       case T_7:
-        SEND_STRING( SS_LCTL("t") "7" );
+        SEND_STRING( SS_LCTL("y") "7" );
         break;
       case T_8:
-        SEND_STRING( SS_LCTL("t") "8" );
+        SEND_STRING( SS_LCTL("y") "8" );
         break;
       case T_9:
-        SEND_STRING( SS_LCTL("t") "9" );
+        SEND_STRING( SS_LCTL("y") "9" );
         break;
       case T_ALT:
-        SEND_STRING( SS_LCTL("tt") );
+        SEND_STRING( SS_LCTL("yy") );
         break;
       case T_NEW:
-        SEND_STRING( SS_LCTL("t") "t" );
+        SEND_STRING( SS_LCTL("y") "t" );
         break;
     }
   }
