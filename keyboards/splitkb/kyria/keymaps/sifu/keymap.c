@@ -52,9 +52,7 @@ enum custom_keycodes {
 
 #define WIN_W     LT( _WIN, KC_W )
 #define TMUX_T    LT( _TMUX, KC_T )
-#define NAV_BSPC   LT( _NAV, KC_BSPC )
-#define BRC_SPC   LT( _BRC, KC_SPC )
-#define GUI_TAB   MT( MOD_LGUI, KC_TAB )
+#define NAV_BSPC  LT( _NAV, KC_BSPC )
 #define SYM_ENT   LT( _SYM, KC_ENT )
 #define SYM_ESC   LT( _SYM, KC_ESC )
 #define EUR       LSA( KC_2 )
@@ -65,7 +63,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
      _______, KC_Q , WIN_W  , KC_E   , KC_R   , TMUX_T,                                          KC_Y   , KC_U      , KC_I  , KC_O   , KC_P    , _______ ,
      _______, KC_A , ALT_S  , CTL_D  , NUM_F  , KC_G  ,                                          KC_H   , BRC_J     , CTL_K , ALT_L  , KC_SCLN , _______,
      _______, SFT_Z, KC_X   , KC_C   , KC_V   , KC_B  , _______ , _______,     _______, _______, KC_N   , KC_M      ,KC_COMM, KC_DOT , SFT_SLSH , _______,
-                              KC_MUTE, _______,SYM_ESC, NAV_BSPC, GUI_TAB,     EUR    , BRC_SPC, SYM_ENT, TT(_MOUSE),TEAM_MUTE
+                              KC_MUTE, _______,SYM_ESC, NAV_BSPC, KC_LGUI,     EUR    , KC_SPC , SYM_ENT, TT(_MOUSE),TEAM_MUTE
     ),
 
     [_NUM] = LAYOUT(
@@ -86,7 +84,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, _______ , _______, _______,                                     _______, _______, _______, _______,  _______, _______,
       _______, _______, KC_MPRV, KC_PAUSE, KC_MNXT, _______,                                     KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______, _______,
       _______, _______, _______, _______ , _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______, _______,
-                                 _______ , _______, KC_CAPS, _______, _______, KC_ESC, KC_BSPC, KC_TAB , _______, _______
+                                 _______ , _______, KC_CAPS, _______, _______, _______, KC_TAB , _______, _______, _______
     ),
 
     [_SYM] = LAYOUT(
