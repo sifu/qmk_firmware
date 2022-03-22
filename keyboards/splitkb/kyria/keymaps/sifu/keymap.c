@@ -41,27 +41,18 @@ enum custom_keycodes {
   T_9,
 };
 
-// Aliases for readability
-#define QWERTY   DF(_QWERTY)
-
-#define BRC      MO(_BRC)
-#define NAV      MO(_NAV)
-#define NUM      MO(_NUM)
-
-// home row mods
-#define SFT_A     MT( MOD_LSFT, KC_A    )
+#define SFT_Z     MT( MOD_LSFT, KC_Z    )
 #define ALT_S     MT( MOD_LALT, KC_S    )
 #define CTL_D     MT( MOD_LCTL, KC_D    )
 #define NUM_F     LT( _NUM, KC_F )
-/* #define GUI_J     MT( MOD_LGUI, KC_J    ) */
 #define BRC_J     LT( _BRC, KC_J    )
 #define CTL_K     MT( MOD_LCTL, KC_K    )
 #define ALT_L     MT( MOD_LALT, KC_L    )
-#define SFT_SCLN MT( MOD_LSFT, KC_SCLN )
+#define SFT_SLSH  MT( MOD_LSFT, KC_SLSH )
 
 #define WIN_W     LT( _WIN, KC_W )
 #define TMUX_T    LT( _TMUX, KC_T )
-#define NAV_BSPC  LT( _NAV, KC_BSPC )
+#define NAV_BSPC   LT( _NAV, KC_BSPC )
 #define BRC_SPC   LT( _BRC, KC_SPC )
 #define GUI_TAB   MT( MOD_LGUI, KC_TAB )
 #define SYM_ENT   LT( _SYM, KC_ENT )
@@ -71,10 +62,10 @@ enum custom_keycodes {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(
-     _______, KC_Q  ,  WIN_W  ,  KC_E   , KC_R   ,  TMUX_T ,                                         KC_Y   , KC_U      , KC_I  , KC_O   , KC_P    , _______ ,
-     _______, SFT_A ,  ALT_S  ,  CTL_D  , NUM_F  ,  KC_G   ,                                         KC_H   , BRC_J     , CTL_K , ALT_L  , SFT_SCLN, _______,
-     _______, KC_Z  ,  KC_X   ,  KC_C   , KC_V   ,  KC_B   , _______ , _______,    _______, _______, KC_N   , KC_M      ,KC_COMM, KC_DOT , KC_SLSH , _______,
-                                 KC_MUTE, _______,  SYM_ESC, NAV_BSPC, GUI_TAB,    EUR    , BRC_SPC, SYM_ENT, TT(_MOUSE),TEAM_MUTE
+     _______, KC_Q , WIN_W  , KC_E   , KC_R   , TMUX_T,                                          KC_Y   , KC_U      , KC_I  , KC_O   , KC_P    , _______ ,
+     _______, KC_A , ALT_S  , CTL_D  , NUM_F  , KC_G  ,                                          KC_H   , BRC_J     , CTL_K , ALT_L  , KC_SCLN , _______,
+     _______, SFT_Z, KC_X   , KC_C   , KC_V   , KC_B  , _______ , _______,     _______, _______, KC_N   , KC_M      ,KC_COMM, KC_DOT , SFT_SLSH , _______,
+                              KC_MUTE, _______,SYM_ESC, NAV_BSPC, GUI_TAB,     EUR    , BRC_SPC, SYM_ENT, TT(_MOUSE),TEAM_MUTE
     ),
 
     [_NUM] = LAYOUT(
@@ -85,9 +76,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_BRC] = LAYOUT(
-     _______, KC_EXLM, KC_AT  , KC_LCBR, KC_RCBR, KC_PERCENT,                                   _______, _______, _______, _______, _______, _______,
-     _______, KC_LABK, KC_RABK, KC_LBRC, KC_RBRC, KC_DOLLAR,                                     _______, KC_QUOTE, KC_DQT, _______, _______, _______,
-     _______, LSA(KC_GRV) ,KC_TILDE, KC_LPRN, KC_RPRN, KC_BSLASH, _______, _______, _______, _______, _______, _______, _______, _______, _______, _______,
+     _______, KC_EXLM, KC_AT  , KC_LCBR, KC_RCBR, KC_PERCENT,                                         KC_ASTR,  KC_7, KC_8, KC_9, KC_EQL , _______,
+     _______, KC_LABK, KC_RABK, KC_LBRC, KC_RBRC, KC_DOLLAR,                                          KC_PLUS,  KC_4, KC_5, KC_6, KC_0   , _______,
+     _______, LSA(KC_GRV) ,KC_TILDE, KC_LPRN, KC_RPRN, KC_BSLASH, _______, _______, _______, _______, KC_MINUS, KC_1, KC_2, KC_3, KC_PIPE, _______,
                                  _______, _______, _______, _______, _______, _______, _______, _______, _______, _______
     ),
 
@@ -95,7 +86,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       _______, _______, _______, _______ , _______, _______,                                     _______, _______, _______, _______,  _______, _______,
       _______, _______, KC_MPRV, KC_PAUSE, KC_MNXT, _______,                                     KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______, _______,
       _______, _______, _______, _______ , _______, _______, _______, _______, _______, _______, KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______, _______,
-                                 _______ , _______, _______, _______, _______, _______, _______, _______, _______, _______
+                                 _______ , _______, KC_CAPS, _______, _______, KC_ESC, KC_BSPC, KC_TAB , _______, _______
     ),
 
     [_SYM] = LAYOUT(
