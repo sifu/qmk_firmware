@@ -42,13 +42,13 @@ enum custom_keycodes {
   T_9,
 };
 
-#define SFT_Z     MT( MOD_LSFT, KC_Z    )
-#define ALT_S     MT( MOD_LALT, KC_S    )
-#define CTL_D     MT( MOD_LCTL, KC_D    )
+#define SFT_Z     MT( MOD_LSFT, KC_Z )
+#define ALT_S     MT( MOD_LALT, KC_S )
+#define CTL_D     MT( MOD_LCTL, KC_D )
 #define NUM_F     LT( _NUM, KC_F )
-#define BRC_J     LT( _BRC, KC_J    )
-#define CTL_K     MT( MOD_LCTL, KC_K    )
-#define ALT_L     MT( MOD_LALT, KC_L    )
+#define BRC_J     LT( _BRC, KC_J )
+#define CTL_K     MT( MOD_LCTL, KC_K )
+#define ALT_L     MT( MOD_LALT, KC_L )
 #define SFT_SLSH  MT( MOD_LSFT, KC_SLSH )
 
 #define WIN_W     LT( _WIN, KC_W )
@@ -58,6 +58,17 @@ enum custom_keycodes {
 #define SYM_ESC   LT( _SYM, KC_ESC )
 #define EUR       LSA( KC_2 )
 #define TEAM_MUTE LSG( KC_M )
+
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case SFT_T(KC_Z):
+      return TAPPING_TERM - 50;
+    case SFT_T(KC_SLSH):
+      return TAPPING_TERM - 50;
+    default:
+      return TAPPING_TERM;
+  }
+}
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_QWERTY] = LAYOUT(

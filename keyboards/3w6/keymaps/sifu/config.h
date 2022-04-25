@@ -2,6 +2,7 @@
 #define IGNORE_MOD_TAP_INTERRUPT
 
 #define TAPPING_TERM 200
+#define TAPPING_TERM_PER_KEY
 
 // Allows media codes to properly register in macros and rotary encoder code
 #define TAP_CODE_DELAY 10
