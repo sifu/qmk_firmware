@@ -56,8 +56,8 @@ enum custom_keycodes {
 #define NAV_BSPC  LT( _NAV, KC_BSPC )
 #define SYM_ENT   LT( _SYM, KC_ENT )
 #define SYM_ESC   LT( _SYM, KC_ESC )
+#define HYPER_SPC MT( KC_HYPR, SPC )
 #define EUR       LSA( KC_2 )
-#define TEAM_MUTE LSG( KC_M )
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
@@ -97,10 +97,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
     [_NAV] = LAYOUT(
       _______, KC_VOLD, KC_MUTE , KC_VOLU, _______,                           _______, _______, _______, _______, _______,
-      _______, KC_MPRV, KC_PAUSE, KC_MNXT, _______,                           KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______,
-      _______, KC_SLCK, _______ , KC_PAUS, _______,                           KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______,
+      _______, KC_MPRV, KC_MPLY,  KC_MNXT, _______,                           KC_LEFT, KC_DOWN, KC_UP  , KC_RGHT, _______,
+      _______, KC_BRID, _______ , KC_BRIU, _______,                           KC_HOME, KC_PGDN, KC_PGUP, KC_END , _______,
 
-                                  _______, _______, _______,         _______, KC_TAB , _______
+                                  _______, _______, _______,         _______, KC_TAB , TO(_MOUSE)
     ),
 
     [_SYM] = LAYOUT(
@@ -130,8 +130,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     [_MOUSE] = LAYOUT(
       _______, KC_BTN1    , KC_MS_UP   , KC_BTN2    , _______,                       _______, _______, _______, _______, _______,
       _______, KC_MS_LEFT , KC_MS_DOWN , KC_MS_RIGHT, _______,                       _______, KC_ACL0, KC_ACL1, KC_ACL2, _______,
-      _______, _______    , _______    , _______    , _______,                       _______, _______, _______, _______, _______,
-                                         KC_BTN1    , _______, _______,     _______, _______, _______
+      _______, _______    , _______    , _______    , _______,                       _______, KC_MS_WH_UP, KC_MS_WH_DOWN, _______, _______,
+                                         TO(_QWERTY), KC_BTN1, _______,     KC_BTN3, KC_BTN2, _______
     ),
 };
 
