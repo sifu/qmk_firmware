@@ -56,7 +56,7 @@ enum custom_keycodes {
 #define NAV_BSPC  LT( _NAV, KC_BSPC )
 #define SYM_ENT   LT( _SYM, KC_ENT )
 #define SYM_ESC   LT( _SYM, KC_ESC )
-#define HYPER_SPC MT( KC_HYPR, SPC )
+#define HYPER_SPC HYPR_T(KC_SPC)
 #define EUR       LSA( KC_2 )
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
       KC_A , ALT_S  , CTL_D  , NUM_F  , KC_G  ,                          KC_H   , BRC_J     , CTL_K , ALT_L  , KC_SCLN ,
       SFT_Z, KC_X   , KC_C   , KC_V   , KC_B  ,                          KC_N   , KC_M      ,KC_COMM, KC_DOT , SFT_SLSH ,
 
-                             SYM_ESC, NAV_BSPC, KC_LGUI,        EUR    , KC_SPC , SYM_ENT
+                             SYM_ESC, NAV_BSPC, KC_LGUI,        EUR    , HYPER_SPC , SYM_ENT
     ),
 
     [_NUM] = LAYOUT(
