@@ -30,6 +30,8 @@ enum layers {
 enum custom_keycodes {
   // tmux
   T_ALT = SAFE_RANGE,
+  T_SPLIT,
+  T_OTHER,
   T_NEW,
   T_1,
   T_2,
@@ -120,8 +122,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_TMUX] = LAYOUT(
-      _______, _______, _______, _______, _______,                            _______, T_7, T_8, T_9, _______,
-      _______, _______, _______, _______, _______,                            _______, T_4, T_5, T_6, T_ALT  ,
+      _______, _______, _______, _______, _______,                            T_SPLIT, T_7, T_8, T_9, _______,
+      _______, _______, _______, _______, _______,                            T_OTHER, T_4, T_5, T_6, T_ALT  ,
       _______, _______, _______, _______, _______,                            T_NEW  , T_1, T_2, T_3, _______,
 
                                  _______, _______, _______,          _______, _______, _______
@@ -168,6 +170,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         break;
       case T_ALT:
         SEND_STRING( SS_LCTL("yy") );
+        break;
+      case T_SPLIT:
+        SEND_STRING( SS_LCTL("y") "|" );
+        break;
+      case T_OTHER:
+        SEND_STRING( SS_LCTL("y") "o" );
         break;
       case T_NEW:
         SEND_STRING( SS_LCTL("y") "t" );
